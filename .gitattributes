@@ -1,0 +1,12 @@
+# Normaliza quebras de linha: LF no repositório, conversão automática no checkout.
+* text=auto eol=lf
+
+# Binários (nunca normalizar)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.docx binary
+*.xlsx binary
+*.zip binary

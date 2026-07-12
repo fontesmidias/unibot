@@ -1,0 +1,60 @@
+# === Segredos e ambiente (NUNCA versionar) ===
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.pfx
+id_rsa*
+secrets/
+
+# === Dependências ===
+node_modules/
+.pnp
+.pnp.*
+vendor/
+
+# === Build / artefatos ===
+dist/
+build/
+out/
+.next/
+*.tsbuildinfo
+
+# === Logs ===
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# === Testes / cobertura ===
+coverage/
+.nyc_output/
+
+# === Dados de runtime / volumes Docker ===
+data/
+volumes/
+*.sqlite
+*.sqlite3
+dump.rdb
+
+# === Sistema operacional ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Editores / IDEs ===
+.vscode/
+.idea/
+*.swp
+*~
+
+# === Tooling do Claude Code (instalação regenerável, específica da máquina) ===
+.claude/
+
+# === Temporários ===
+tmp/
+temp/
+*.tmp
