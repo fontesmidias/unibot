@@ -7,13 +7,19 @@ updated: 2026-06-20
 
 # Product Brief: unibot
 
+> 🔒 **Versão anonimizada para versionamento.** As referências competitivas deste documento foram
+> substituídas por designações neutras (Concorrente A, B, C). Os achados técnicos, datas e versões
+> são preservados integralmente — apenas a identificação das fontes foi removida.
+> A versão com as fontes nomeadas é mantida fora do controle de versão.
+
+
 > Insumos-base: `../SUMARIO_INSUMOS.md`, `../RE_ANALISE.md`. Detalhe estendido em `addendum.md`.
 
 ## Executive Summary
 
 O **unibot** é uma plataforma SaaS de **atendimento e automação multicanal** para pequenas e médias empresas que vendem e atendem pelo WhatsApp. Reúne multi-atendimento, chatbot visual, CRM/funil e IA numa única plataforma **gerenciada e multitenant** — o cliente apenas usa, sem nunca tocar em servidor, atualização ou API de WhatsApp.
 
-O mercado brasileiro hoje força uma escolha ruim. De um lado, plataformas amplas como o **ZPRO** entregam muitos recursos, mas no modelo de **licença self-hosted**, em que quem compra herda toda a operação. De outro, soluções como o **Jetsales** são simples e bem posicionadas, mas rasas — presas a um único canal. O unibot ocupa o meio premium: **a amplitude do ZPRO entregue com a simplicidade e estabilidade de um SaaS gerenciado**.
+O mercado brasileiro hoje força uma escolha ruim. De um lado, plataformas amplas como o **Concorrente A** entregam muitos recursos, mas no modelo de **licença self-hosted**, em que quem compra herda toda a operação. De outro, soluções como o **Concorrente B** são simples e bem posicionadas, mas rasas — presas a um único canal. O unibot ocupa o meio premium: **a amplitude do Concorrente A entregue com a simplicidade e estabilidade de um SaaS gerenciado**.
 
 A aposta é direta: transformar tudo o que hoje é dor do operador (estabilidade de conexão, deploy, manutenção) em **responsabilidade do unibot** — e cobrar por isso de forma recorrente. Quem opera a plataforma é o Bruno; cada empresa-cliente é um tenant que consome o serviço pronto. Agora é o momento, com a maturação da API Oficial do WhatsApp (WABA) e a IA generativa acessível, que barateia a automação de atendimento.
 
@@ -23,7 +29,7 @@ PMEs que dependem do WhatsApp para vender e atender vivem três dores simultâne
 
 1. **Atendimento caótico e não-escalável.** Um número, vários atendentes brigando pelo mesmo celular, conversas perdidas, sem fila, sem histórico, sem métricas. Quando a empresa cresce, o WhatsApp "na unha" trava o crescimento.
 2. **Automação fora de alcance.** Montar chatbot, qualificar lead e integrar com CRM exige ou contratar agência, ou comprar uma plataforma técnica demais para o time da PME operar.
-3. **As alternativas atuais transferem o problema errado.** Plataformas self-hosted como o ZPRO resolvem recursos, mas entregam à empresa uma operação de TI que ela não quer nem sabe tocar: VPS, atualização manual com "faça backup antes", e a instabilidade recorrente das APIs não oficiais (reconectar, reler QR Code, breaking changes). A PME quer **vender mais**, não administrar servidor. As alternativas simples, por sua vez, prendem a empresa a um único canal e pouca profundidade.
+3. **As alternativas atuais transferem o problema errado.** Plataformas self-hosted como o Concorrente A resolvem recursos, mas entregam à empresa uma operação de TI que ela não quer nem sabe tocar: VPS, atualização manual com "faça backup antes", e a instabilidade recorrente das APIs não oficiais (reconectar, reler QR Code, breaking changes). A PME quer **vender mais**, não administrar servidor. As alternativas simples, por sua vez, prendem a empresa a um único canal e pouca profundidade.
 
 O custo do status quo: leads perdidos por demora na resposta, equipe afogada, e dependência de uma solução frágil que pode cair no pior momento — sem ninguém claramente responsável por levantá-la.
 
@@ -37,12 +43,12 @@ Uma plataforma de atendimento que a PME **liga e usa no mesmo dia**:
 - **IA plugável** — resposta, qualificação e reescrita por IA (múltiplos provedores), como parte nativa do fluxo.
 - **100% gerenciado e multitenant** — onboarding self-service, provisionamento do tenant em minutos, e toda a camada de infraestrutura, conexão de WhatsApp e atualizações por conta do unibot. O cliente nunca vê uma VPS.
 
-O coração técnico é uma **camada de canal unificada**: um contrato único sobre as várias APIs de WhatsApp (oficial WABA + alternativas), com health-check, reconexão automática e fallback entre provedores — exatamente a fragilidade que derruba o ZPRO, aqui resolvida na infraestrutura e invisível para o cliente.
+O coração técnico é uma **camada de canal unificada**: um contrato único sobre as várias APIs de WhatsApp (oficial WABA + alternativas), com health-check, reconexão automática e fallback entre provedores — exatamente a fragilidade que derruba o Concorrente A, aqui resolvida na infraestrutura e invisível para o cliente.
 
 ## What Makes This Different
 
 - **Gerenciado, não self-hosted.** O diferencial nº 1 não é uma feature, é o **modelo de entrega**: o cliente consome um serviço estável; a operação é nossa. É o que separa o unibot da categoria "compre a licença e se vire".
-- **Amplitude do ZPRO + simplicidade do Jetsales.** Múltiplos recursos sem a complexidade técnica; um canal forte (WhatsApp) com profundidade real e caminho para outros.
+- **Amplitude do Concorrente A + simplicidade do Concorrente B.** Múltiplos recursos sem a complexidade técnica; um canal forte (WhatsApp) com profundidade real e caminho para outros.
 - **Estabilidade como produto.** A camada de canal unificada com fallback transforma a maior dor do mercado (a conexão caindo) em uptime que o concorrente self-hosted não consegue prometer — uma vantagem invisível, mas sentida.
 - **Honestidade sobre o moat.** Não há tecnologia secreta intransponível aqui. A vantagem real é **execução e operação**: produto bem-feito, onboarding sem atrito e confiabilidade que sustenta a assinatura recorrente. O fosso se cava com velocidade e qualidade de serviço, não com patente.
 

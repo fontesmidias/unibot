@@ -3,7 +3,7 @@ stepsCompleted: [1]
 inputDocuments:
   - _bmad-output/planning-artifacts/prds/prd-unibot-2026-06-20/prd.md
   - _bmad-output/planning-artifacts/prds/prd-unibot-2026-06-20/addendum.md
-  - _bmad-output/planning-artifacts/prds/prd-unibot-2026-06-20/analise-concorrente-zpro.md
+  - _bmad-output/planning-artifacts/prds/prd-unibot-2026-06-20/analise-concorrente.md
   - _bmad-output/planning-artifacts/briefs/brief-unibot-2026-06-20/brief.md
 workflowType: 'architecture'
 project_name: 'unibot'
@@ -30,5 +30,11 @@ architecturalConstraints:
 ---
 
 # Architecture Decision Document
+
+> 🔒 **Versão anonimizada para versionamento.** As referências competitivas deste documento foram
+> substituídas por designações neutras (Concorrente A, B, C). Os achados técnicos, datas e versões
+> são preservados integralmente — apenas a identificação das fontes foi removida.
+> A versão com as fontes nomeadas é mantida fora do controle de versão.
+
 
 _This document builds collaboratively through step-by-step discovery. Sections are appended as we work through each architectural decision together._

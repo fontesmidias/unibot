@@ -8,6 +8,12 @@ date: 2026-07-09
 
 # Review Adversarial — PRD unibot
 
+> 🔒 **Versão anonimizada para versionamento.** As referências competitivas deste documento foram
+> substituídas por designações neutras (Concorrente A, B, C). Os achados técnicos, datas e versões
+> são preservados integralmente — apenas a identificação das fontes foi removida.
+> A versão com as fontes nomeadas é mantida fora do controle de versão.
+
+
 > **Postura:** este documento ataca. Não há elogios. Cada achado assume má-fé do redator e busca a contradição, a suposição não-examinada e o furo de escopo que vai explodir em epics/arquitetura. Onde o PRD se defende com uma mitigação, eu questiono se a mitigação é real ou se é só uma frase.
 
 **Veredito adversarial:** o PRD promete estabilidade de nível operadora (uptime ≥99,5%, "não derruba a sessão") sobre três drivers dos quais dois são APIs não oficiais estruturalmente instáveis, com um operador único, e ao mesmo tempo confessa que o escopo (10 features / 71 FRs) não cabe no prazo de 30 dias — as três âncoras do produto (estabilidade, margem sob tiers puros, primeiros pagantes em 30 dias) estão em contradição direta entre si e nenhuma tem número verificável que a sustente.
@@ -44,7 +50,7 @@ Adicionalmente, NFR-1 é **auto-contraditório com a existência do FR-63**: se 
 
 **Problema:** O modelo é **tiers puros — "Sem cobrança variável de excedente"** (addendum §1.4). Mas dois custos do unibot são estritamente variáveis e fora do seu controle: (1) tokens de IA (OpenAI/Gemini/etc.) e (2) **preço por conversa do WABA cobrado pela Meta** (addendum §1.1: "preço por conversa da Meta"). O PRD reconhece em §3 que o custo de IA "pressiona a margem sob tiers puros" e afirma que a mitigação é "enforcement de cotas". Isso é **circular e insuficiente**:
 
-- A cota protege o **teto**, não o **custo dentro da cota**. Se a cota de IA do plano Essencial for generosa o bastante para vender, ela já pode custar mais que a mensalidade quando totalmente consumida. Se for apertada o bastante para garantir margem, o produto perde para o Z-PRO na feature de IA.
+- A cota protege o **teto**, não o **custo dentro da cota**. Se a cota de IA do plano Essencial for generosa o bastante para vender, ela já pode custar mais que a mensalidade quando totalmente consumida. Se for apertada o bastante para garantir margem, o produto perde para o Concorrente A na feature de IA.
 - O **custo WABA por conversa nem aparece como dimensão de gating** (FR-52 lista atendentes, canais, tokens de IA, volume de mensagens — mas "volume de mensagens de campanha" ≠ conversas WABA faturáveis iniciadas pela empresa). Um tenant no tier baixo que dispara campanhas via WABA gera custo Meta que o preço fixo não cobre.
 - "Margem positiva por tenant" (§3) é afirmada como **meta**, não demonstrada. Com todos os números de preço/cota em `[A DEFINIR]` (§11.1), a afirmação de margem positiva é **fé, não requisito** — e é justamente o número que decide se o negócio existe.
 
@@ -72,7 +78,7 @@ Adicionalmente, NFR-1 é **auto-contraditório com a existência do FR-63**: se 
 **Problema:** Bruno é **operador, superadmin, suporte, vendas (10 pagantes/30d) e provavelmente dev**. R4 nomeia "Concentração no operador" mas classifica como risco comum e mitiga com "onboarding self-service (Feature 8) + centro de operação consolidado (FR-46)". Isso é falha de raciocínio:
 
 - Self-service reduz o trabalho **por tenant**, mas não remove o **single point of failure humano**. Se Bruno adoece na semana do lançamento, o negócio para: não há on-call secundário, sem runbook, sem cobertura. O PRD não menciona bus-factor, backup humano, nem SLA de resposta a incidente.
-- A promessa de estabilidade (NFR-1/2/3) exige **resposta operacional a incidentes de canal** — bans de número, reconexões, restrição de conta Meta (R7). Esses incidentes chegam a qualquer hora e **não são self-service**; exigem o Bruno. Com dezenas de tenants, "~40 chamados/dia" (citado em R8 sobre o Z-PRO) sobre um humano só é matematicamente inviável.
+- A promessa de estabilidade (NFR-1/2/3) exige **resposta operacional a incidentes de canal** — bans de número, reconexões, restrição de conta Meta (R7). Esses incidentes chegam a qualquer hora e **não são self-service**; exigem o Bruno. Com dezenas de tenants, "~40 chamados/dia" (citado em R8 sobre o Concorrente A) sobre um humano só é matematicamente inviável.
 - §3 lista como contra-métrica "carga operacional crescendo linearmente com nº de tenants" mas o único mecanismo contra isso é "automação operacional (ver NFRs)" — os NFRs falam de observabilidade e resiliência, não de **eliminar a intervenção humana obrigatória** em bans/reconexões, que é justamente o que não escala.
 
 **Correção sugerida:** (a) Adicionar NFR de operação: runbooks para os N incidentes de canal mais comuns, automação de reconexão sem intervenção humana como requisito duro (não "health-check", mas "auto-remediação para X% dos incidentes"), e um limite explícito de tenants suportáveis por operador antes de contratar. (b) Definir um plano de continuidade mínimo (bus-factor ≥ 2 ou runbook + acesso de emergência). (c) Reconhecer que a meta de escala ("dezenas/centenas de tenants", FR-42/NFR-5) é incompatível com operador único e nomear o ponto em que a contratação vira pré-requisito, não opção.
@@ -95,9 +101,9 @@ Para o driver não oficial (QR Code) o onboarding em minutos é plausível; para
 ---
 
 ### H2 — "3 drivers estáveis" contradiz o próprio argumento de venda ("poucas conexões estáveis > muitas frágeis")
-**Local:** §2 (bullet "Camada de canal unificada e estável": *"contrato único sobre poucas conexões realmente estáveis"* e *"O Z-PRO respondeu à instabilidade somando 7 APIs frágeis... Poucas conexões estáveis > muitas frágeis"*), addendum §1.1 + nota de risco.
+**Local:** §2 (bullet "Camada de canal unificada e estável": *"contrato único sobre poucas conexões realmente estáveis"* e *"O Concorrente A respondeu à instabilidade somando 7 APIs frágeis... Poucas conexões estáveis > muitas frágeis"*), addendum §1.1 + nota de risco.
 
-**Problema:** O diferencial nº 1 de posicionamento é retórico: "poucas conexões **realmente estáveis**" contra as "7 APIs frágeis" do Z-PRO. Mas o addendum §1.1 adota **três** drivers, dois deles não oficiais (Evolution + Baileys) — exatamente a categoria "frágil" que o discurso condena — e a própria nota de risco do addendum admite: *"A expansão para 2 não oficiais aumenta a superfície de manutenção"*. O brief original previa **1** não oficial; subiu para 2 "por redundância de fallback". Então o produto está fazendo uma versão menor do que critica no concorrente (somar APIs não oficiais para compensar instabilidade), enquanto vende o oposto. "Baileys" (biblioteca) não é uma "conexão realmente estável" por nenhuma definição — o addendum §3 diz que ela "quebra sessão a cada update".
+**Problema:** O diferencial nº 1 de posicionamento é retórico: "poucas conexões **realmente estáveis**" contra as "7 APIs frágeis" do Concorrente A. Mas o addendum §1.1 adota **três** drivers, dois deles não oficiais (Evolution + Baileys) — exatamente a categoria "frágil" que o discurso condena — e a própria nota de risco do addendum admite: *"A expansão para 2 não oficiais aumenta a superfície de manutenção"*. O brief original previa **1** não oficial; subiu para 2 "por redundância de fallback". Então o produto está fazendo uma versão menor do que critica no concorrente (somar APIs não oficiais para compensar instabilidade), enquanto vende o oposto. "Baileys" (biblioteca) não é uma "conexão realmente estável" por nenhuma definição — o addendum §3 diz que ela "quebra sessão a cada update".
 
 **Correção sugerida:** Alinhar discurso e realidade. Ou (a) reduzir para WABA + 1 não oficial no MVP (como o brief) e manter a narrativa "poucas e estáveis"; ou (b) manter os 3 mas reescrever o posicionamento honestamente: "1 conexão oficial estável + fallbacks não oficiais redundantes" — parar de afirmar que as conexões não oficiais são "realmente estáveis". A afirmação atual é falsa em relação à arquitetura escolhida.
 
@@ -141,9 +147,9 @@ Para o driver não oficial (QR Code) o onboarding em minutos é plausível; para
 ---
 
 ### H6 — Risco Meta (R7) tem probabilidade alta e mitigação empurrada para o roadmap
-**Local:** R7, addendum §3 ("Conta Meta da ZDG restringida derrubou clientes; OAuth compartilhado = ponto único de falha"), roadmap item 3 (BSP próprio marcado ⚑).
+**Local:** R7, addendum §3 ("Conta Meta do Concorrente A restringida derrubou clientes; OAuth compartilhado = ponto único de falha"), roadmap item 3 (BSP próprio marcado ⚑).
 
-**Problema:** O PRD reconhece que a conta Meta do **próprio concorrente foi restringida em 2026, derrubando clientes** — ou seja, é um risco **realizado no mercado**, não hipotético. A mitigação estrutural (ser **BSP/Meta Business Partner próprio**, Embedded Signup) está no **roadmap pós-MVP** (item 3). Isso significa que no MVP o unibot depende de uma configuração WABA que carrega o mesmo ponto único de falha que derrubou o Z-PRO. Se a estratégia de onboarding WABA no MVP usar um app/conta Meta compartilhado do unibot, uma restrição da Meta derruba **todos** os tenants simultaneamente — matando a métrica-âncora de uptime de forma correlacionada, não isolada. R1 promete "isolamento de cada provedor como driver substituível", mas isso não isola do risco de **conta/app Meta compartilhado**, que é ortogonal ao driver.
+**Problema:** O PRD reconhece que a conta Meta do **próprio concorrente foi restringida em 2026, derrubando clientes** — ou seja, é um risco **realizado no mercado**, não hipotético. A mitigação estrutural (ser **BSP/Meta Business Partner próprio**, Embedded Signup) está no **roadmap pós-MVP** (item 3). Isso significa que no MVP o unibot depende de uma configuração WABA que carrega o mesmo ponto único de falha que derrubou o Concorrente A. Se a estratégia de onboarding WABA no MVP usar um app/conta Meta compartilhado do unibot, uma restrição da Meta derruba **todos** os tenants simultaneamente — matando a métrica-âncora de uptime de forma correlacionada, não isolada. R1 promete "isolamento de cada provedor como driver substituível", mas isso não isola do risco de **conta/app Meta compartilhado**, que é ortogonal ao driver.
 
 **Correção sugerida:** Decidir no MVP (não no roadmap) o modelo de conta WABA: cada tenant com seu próprio WABA/Business Manager (isolamento de risco Meta, mas onboarding mais pesado — ver H1) vs. app compartilhado do unibot (onboarding leve, risco correlacionado). Documentar a escolha e seu blast radius. Não é decisão adiável: define se um incidente Meta é de 1 tenant ou de todos.
 
@@ -172,7 +178,7 @@ Para o driver não oficial (QR Code) o onboarding em minutos é plausível; para
 ### M2 — FR-63 (identidade robusta) é apresentado como resolvido, mas depende de comportamento não documentado do WhatsApp
 **Local:** FR-63, R7, addendum §3.
 
-**Problema:** FR-63 promete "normalizar de forma robusta" nono dígito, `@lid`/LID e "mudanças de endereçamento do WhatsApp" — e o PRD o vende como correção definitiva de um "bug perene do Z-PRO (corrigido 6+ vezes em 2 anos)". Mas se o Z-PRO precisou corrigir **6+ vezes**, é porque a Meta **muda o esquema de endereçamento** periodicamente — é um alvo móvel, não um bug de código a ser "resolvido de uma vez". Apresentar como requisito fechado subestima que isto é manutenção contínua e um vetor de quebra recorrente (o mesmo que R7 admite). FR-63 é honesto como *capacidade*, desonesto como *garantia*.
+**Problema:** FR-63 promete "normalizar de forma robusta" nono dígito, `@lid`/LID e "mudanças de endereçamento do WhatsApp" — e o PRD o vende como correção definitiva de um "bug perene do Concorrente A (corrigido 6+ vezes em 2 anos)". Mas se o Concorrente A precisou corrigir **6+ vezes**, é porque a Meta **muda o esquema de endereçamento** periodicamente — é um alvo móvel, não um bug de código a ser "resolvido de uma vez". Apresentar como requisito fechado subestima que isto é manutenção contínua e um vetor de quebra recorrente (o mesmo que R7 admite). FR-63 é honesto como *capacidade*, desonesto como *garantia*.
 
 **Correção sugerida:** Reformular como requisito de **resiliência a mudanças** (camada de identidade isolada + testes de contrato + processo de resposta rápida a mudança de esquema Meta), não como "identidade robusta" fechada. Vincular ao mesmo processo de R7.
 

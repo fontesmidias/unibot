@@ -1,5 +1,11 @@
 # Addendum — Product Brief: unibot
 
+> 🔒 **Versão anonimizada para versionamento.** As referências competitivas deste documento foram
+> substituídas por designações neutras (Concorrente A, B, C). Os achados técnicos, datas e versões
+> são preservados integralmente — apenas a identificação das fontes foi removida.
+> A versão com as fontes nomeadas é mantida fora do controle de versão.
+
+
 Profundidade que pertence a documentos downstream (PRD, arquitetura) ou que ganhou lugar mas não cabe no corpo enxuto do brief.
 
 ## Monetização — opções consideradas
@@ -16,7 +22,7 @@ Custos variáveis reais a cobrir no pricing: tokens de IA generativa; cobrança 
 
 ## Roadmap parkeado (pós-MVP)
 
-Derivado das forças do ZPRO mapeadas em `RE_ANALISE.md`, mantidas fora do MVP mas no horizonte:
+Derivado das forças do Concorrente A mapeadas em `RE_ANALISE.md`, mantidas fora do MVP mas no horizonte:
 
 - **Expansão de canais:** Instagram, Messenger, Telegram, e-mail/Gmail, webchat, TikTok, Mercado Livre, OLX.
 - **WABA avançado:** templates, catálogo/produtos, ligações (SIP/WAVOIP), webhooks keep-alive.
@@ -29,10 +35,10 @@ Derivado das forças do ZPRO mapeadas em `RE_ANALISE.md`, mantidas fora do MVP m
 **Camada de canal unificada** — contrato único (`send` / `receive` / `status`) sobre múltiplas APIs de WhatsApp, com:
 - health-check por conexão e reconexão automática;
 - fallback entre provedores quando uma API não-oficial cai;
-- isolamento da API não-oficial como plugin substituível (lição direta das trocas de fork da Baileys no ZPRO);
-- testes de contrato por provedor para evitar o ciclo de "correções gerais uazapi/zapi toda semana" observado no ZPRO.
+- isolamento da API não-oficial como plugin substituível (lição direta das trocas de fork da Baileys no Concorrente A);
+- testes de contrato por provedor para evitar o ciclo de "correções gerais uazapi/zapi toda semana" observado no Concorrente A.
 
 ## Notas de modelo de negócio
 
-- unibot **não** revende licença a desenvolvedores (modelo ZPRO). Bruno é o operador único; tenants = empresas-clientes finais.
+- unibot **não** revende licença a desenvolvedores (modelo Concorrente A). Bruno é o operador único; tenants = empresas-clientes finais.
 - O multitenant existe para o operador servir muitas empresas — não para terceiros revenderem.

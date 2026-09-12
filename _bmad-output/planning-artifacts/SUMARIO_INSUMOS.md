@@ -1,13 +1,19 @@
-# Sumário de Insumos — unibot (referência: ZPRO · concorrente: Jetsales)
+# Sumário de Insumos — unibot (referência: Concorrente A · concorrente: Concorrente B)
+
+> 🔒 **Versão anonimizada para versionamento.** As referências competitivas deste documento foram
+> substituídas por designações neutras (Concorrente A, B, C). Os achados técnicos, datas e versões
+> são preservados integralmente — apenas a identificação das fontes foi removida.
+> A versão com as fontes nomeadas é mantida fora do controle de versão.
+
 
 > Fase 1 da engenharia reversa. Sintetiza os insumos públicos antes da análise.
 > Status: **completo** — páginas de vendas + changelog ingeridos.
 
 ## Fontes analisadas
 
-- ✅ Página de vendas ZPRO — https://zpro.zdg.com.br/ (sistema de referência)
-- ✅ Página de vendas Jetsales — https://jetsalesbrasil.com.br/ (concorrente)
-- ✅ Changelog ZPRO — `changelog-concorrente/` (conversas 21/07–17/10/2025, v3.1.3.0 → v3.1.4.1)
+- ✅ Página de vendas Concorrente A — (site do Concorrente A) (sistema de referência)
+- ✅ Página de vendas Concorrente B — https://(site do Concorrente B)/ (concorrente)
+- ✅ Changelog Concorrente A — `(fonte fora do versionamento)` (conversas 21/07–17/10/2025, v3.1.3.0 → v3.1.4.1)
 
 ---
 
@@ -15,14 +21,14 @@
 
 | Entidade | Descrição | Origem |
 |----------|-----------|--------|
-| Tenant / Conta | Conta isolada de cliente (multi-tenant) | ZPRO |
+| Tenant / Conta | Conta isolada de cliente (multi-tenant) | Concorrente A |
 | Usuário / Agente | Atendente que responde tickets | ambos |
 | Ticket / Conversa | Atendimento individual com um contato | ambos |
-| Fila / Setor | Agrupamento de conversas (Vendas, Suporte, Financeiro) | ZPRO |
+| Fila / Setor | Agrupamento de conversas (Vendas, Suporte, Financeiro) | Concorrente A |
 | Contato | Registro de CRM com tags e histórico | ambos |
 | Canal / Conexão | Número/conta conectada (WhatsApp, IG, etc.) | ambos |
 | Flow / Chatbot | Fluxo de automação visual | ambos |
-| Oportunidade | Card de Kanban/funil de vendas | ZPRO |
+| Oportunidade | Card de Kanban/funil de vendas | Concorrente A |
 | Campanha | Disparo em massa segmentado | ambos |
 
 ## Ações / Operações principais
@@ -33,20 +39,20 @@
 - Gestão de CRM: tags, histórico, Kanban/funil de oportunidades
 - Roteamento por setor e transferência humano↔bot
 - Relatórios: TMA, TME, desempenho por agente
-- (ZPRO) Revenda multi-tenant: criar contas ilimitadas, gateway de pagamento, painel SuperAdmin
+- (Concorrente A) Revenda multi-tenant: criar contas ilimitadas, gateway de pagamento, painel SuperAdmin
 
 ## Regras de negócio observadas
 
-- **ZPRO:** licença anual única, sem limites de usuários/números/mensagens
-- **ZPRO:** revendedor fica com 100% da receita (sem royalties) no plano Revenda
-- **ZPRO:** masterkey dá acesso administrativo sem senha do cliente; Force Logout
-- **ZPRO:** modo coexistência (QR Code) **e** API Oficial (BSP)
-- **ZPRO:** motor Socket otimizado para 1.500+ tickets/dia
-- **Jetsales:** disparo "respeitando práticas do WhatsApp" (anti-ban implícito)
+- **Concorrente A:** licença anual única, sem limites de usuários/números/mensagens
+- **Concorrente A:** revendedor fica com 100% da receita (sem royalties) no plano Revenda
+- **Concorrente A:** masterkey dá acesso administrativo sem senha do cliente; Force Logout
+- **Concorrente A:** modo coexistência (QR Code) **e** API Oficial (BSP)
+- **Concorrente A:** motor Socket otimizado para 1.500+ tickets/dia
+- **Concorrente B:** disparo "respeitando práticas do WhatsApp" (anti-ban implícito)
 
 ## Integrações e dependências externas
 
-| Categoria | ZPRO | Jetsales |
+| Categoria | Concorrente A | Concorrente B |
 |-----------|------|----------|
 | IA | ChatGPT, Claude, Gemini, Dify | IA própria (não especifica) |
 | Automação externa | n8n (400+ nós), Typebot, Webhooks | não especificado |
@@ -55,7 +61,7 @@
 | Infra | Ubuntu VPS (DigitalOcean, Vultr, AWS, Hostinger) | SaaS gerenciado |
 | Pagamento | Gateway integrado (margem livre) | — |
 
-## Terminologia do sistema (ZPRO)
+## Terminologia do sistema (Concorrente A)
 
 - **Super-Admin** — painel central de gestão de revendas
 - **Tenants** — contas isoladas de clientes
@@ -69,28 +75,28 @@
 
 | Produto | Plano | Preço | Limites |
 |---------|-------|-------|---------|
-| ZPRO | Uso Próprio | R$ 1.997/ano (12x R$ 205,32) | 1 conta, ilimitado interno |
-| ZPRO | Revenda | R$ 2.797/ano (12x R$ 287,57) | contas/servidores ilimitados |
-| Jetsales | — | não divulgado | SaaS por assinatura (presumido) |
+| Concorrente A | Uso Próprio | R$ 1.997/ano (12x R$ 205,32) | 1 conta, ilimitado interno |
+| Concorrente A | Revenda | R$ 2.797/ano (12x R$ 287,57) | contas/servidores ilimitados |
+| Concorrente B | — | não divulgado | SaaS por assinatura (presumido) |
 
-- ZPRO: garantia 7 dias, reembolso integral; infra ~R$ 50-150/mês; 13 idiomas
-- Jetsales: 50k+ usuários ativos, 10M+ msgs/mês, 99,9% uptime
+- Concorrente A: garantia 7 dias, reembolso integral; infra ~R$ 50-150/mês; 13 idiomas
+- Concorrente B: 50k+ usuários ativos, 10M+ msgs/mês, 99,9% uptime
 
 ## Público-alvo
 
-- **ZPRO:** agências, empreendedores, revendedores SaaS, e-commerce, turismo
-- **Jetsales:** educação, varejo, serviços profissionais, saúde
+- **Concorrente A:** agências, empreendedores, revendedores SaaS, e-commerce, turismo
+- **Concorrente B:** educação, varejo, serviços profissionais, saúde
 
 ## Posicionamento comparado (insight inicial)
 
-| Eixo | ZPRO | Jetsales |
+| Eixo | Concorrente A | Concorrente B |
 |------|------|----------|
 | Modelo | Self-hosted, white-label, licença anual, revenda | SaaS gerenciado por assinatura |
 | Amplitude de canais | Muito ampla (10 canais) | WhatsApp puro |
 | Foco | Controle/custo/revenda | Simplicidade + IA de qualificação |
 | Escala provada | 1.500+ tickets/dia (alegado) | 10M msgs/mês, 99,9% uptime |
 
-## Stack técnica do ZPRO (confirmada pelo changelog)
+## Stack técnica do Concorrente A (confirmada pelo changelog)
 
 | Camada | Tecnologia | Evidência no changelog |
 |--------|-----------|------------------------|
@@ -100,7 +106,7 @@
 | Cache/filas | Redis (5.6 → 6.8) | "consumo excessivo de Redis", `redis-parser` |
 | Proxy/TLS | Nginx + Certbot (Let's Encrypt) | `sites-available`, `certbot --nginx` |
 | Orquestração | Docker + Portainer (sem k8s) | "recriação do Redis via Portainer" |
-| Deploy | VPS Ubuntu, autoinstalador shell, `deployzdg` | `zpro_passaporte_shell`, `su deployzdg` |
+| Deploy | VPS Ubuntu, autoinstalador shell, `(usuário de deploy do concorrente)` | `(script de instalação e usuário de deploy do concorrente)` |
 | Multi-tenant | Pastas por tenant | `backend/sessions/tenant1/1` |
 
 ### Canais/APIs de WhatsApp suportados (camada fragmentada)
@@ -113,6 +119,6 @@ Superadmin (export empresas, masterkey, limitar canais por tenant), convite/tran
 
 ## Gaps / incertezas restantes
 
-1. Preços e limites reais do **Jetsales** (página de planos não lida) — secundário.
+1. Preços e limites reais do **Concorrente B** (página de planos não lida) — secundário.
 2. Modelo de dados detalhado e contratos de API exatos — inferíveis, não capturados via tráfego.
 3. Definição final do **unibot**: escopo do MVP e modelo de negócio — ✅ direção definida: **self-hosted/revenda** melhorando custo e onboarding.

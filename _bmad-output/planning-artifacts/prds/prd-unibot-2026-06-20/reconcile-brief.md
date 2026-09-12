@@ -1,5 +1,11 @@
 # Reconciliação Brief → PRD — unibot
 
+> 🔒 **Versão anonimizada para versionamento.** As referências competitivas deste documento foram
+> substituídas por designações neutras (Concorrente A, B, C). Os achados técnicos, datas e versões
+> são preservados integralmente — apenas a identificação das fontes foi removida.
+> A versão com as fontes nomeadas é mantida fora do controle de versão.
+
+
 > Verificação de cobertura: o que o **Product Brief** (brief.md + addendum.md, 2026-06-20) afirma e que o **PRD** (prd.md + addendum.md) deixou cair ou representou mal. Foco em ideias qualitativas — posicionamento, personas, tom, métricas, restrições. Só o que está no brief; nada inventado.
 
 ## Resumo do veredito
@@ -10,10 +16,10 @@ O PRD tem **excelente cobertura funcional** (as 10 features/71 FRs traduzem fiel
 
 ## Lacunas (o que o brief tem e o PRD não)
 
-### L1 — Jetsales sumiu: o posicionamento perdeu um dos dois polos `[ALTA]`
-O brief posiciona o unibot no **meio premium entre dois concorrentes opostos**: o **ZPRO** (amplo, mas self-hosted e frágil) e o **Jetsales** (simples e bem posicionado, mas raso, preso a um único canal). É uma tese de duas pontas — "a amplitude do ZPRO entregue com a simplicidade e estabilidade de um SaaS gerenciado" (Executive Summary; What Makes This Different: "Amplitude do ZPRO + simplicidade do Jetsales").
+### L1 — Concorrente B sumiu: o posicionamento perdeu um dos dois polos `[ALTA]`
+O brief posiciona o unibot no **meio premium entre dois concorrentes opostos**: o **Concorrente A** (amplo, mas self-hosted e frágil) e o **Concorrente B** (simples e bem posicionado, mas raso, preso a um único canal). É uma tese de duas pontas — "a amplitude do Concorrente A entregue com a simplicidade e estabilidade de um SaaS gerenciado" (Executive Summary; What Makes This Different: "Amplitude do Concorrente A + simplicidade do Concorrente B").
 
-O PRD colapsou isso em **um único eixo contra o Z-PRO**. O §2 lista "amplitude com simplicidade", mas **nunca cita o Jetsales** nem o polo "simples-porém-raso". Consequência: perde-se o enquadramento de que o unibot também compete por baixo (contra ferramentas simples), não só por cima. Quem ler só o PRD acha que o único concorrente é o Z-PRO.
+O PRD colapsou isso em **um único eixo contra o Concorrente A**. O §2 lista "amplitude com simplicidade", mas **nunca cita o Concorrente B** nem o polo "simples-porém-raso". Consequência: perde-se o enquadramento de que o unibot também compete por baixo (contra ferramentas simples), não só por cima. Quem ler só o PRD acha que o único concorrente é o Concorrente A.
 
 ### L2 — A seção Vision inteira foi descartada `[ALTA]`
 O brief fecha com uma **Vision** de 2-3 anos: unibot como "forma **padrão e confiável** de uma PME brasileira atender e vender por mensagem", evoluindo para um "**hub omnichannel gerenciado**", com "a confiabilidade operacional — não uma feature isolada — [virando] a **marca registrada** que sustenta a recorrência e o **boca a boca**".
@@ -49,7 +55,7 @@ Três framings do brief perderam força ou desapareceram no PRD:
 ## Recomendação
 
 Lacunas L1–L4 merecem correção antes de epics/arquitetura, pois afetam posicionamento e priorização. Sugestão mínima:
-1. Reintroduzir o **Jetsales** no §2 como o polo "simples-porém-raso" (L1).
+1. Reintroduzir o **Concorrente B** no §2 como o polo "simples-porém-raso" (L1).
 2. Adicionar uma seção curta de **Visão/Norte** ao PRD (ou nota no topo do §10) capturando hub omnichannel gerenciado + confiabilidade como marca/boca a boca (L2).
 3. Incluir **verticais-alvo e faixa de 1–15 atendentes** no §4 (L3).
 4. Acrescentar o **why-now** (maturação WABA + IA acessível) ao §1 (L4).

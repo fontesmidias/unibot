@@ -1,8 +1,14 @@
 # PRD Quality Review — unibot (2026-06-20)
 
+> 🔒 **Versão anonimizada para versionamento.** As referências competitivas deste documento foram
+> substituídas por designações neutras (Concorrente A, B, C). Os achados técnicos, datas e versões
+> são preservados integralmente — apenas a identificação das fontes foi removida.
+> A versão com as fontes nomeadas é mantida fora do controle de versão.
+
+
 ## Overall verdict
 
-Este é um PRD forte no que mais importa para um chain-top de estágio LAUNCH: tem uma tese clara e defensável ("estabilidade gerenciada como produto" vs. self-hosted), escopo honesto, e substância *ganha* — cada diferencial e cada requisito de engenharia está ancorado em uma falha concreta do concorrente Z-PRO, não em template. A tensão real (30 dias vs. 71 FRs) é nomeada, não suavizada. O que está em risco é a camada de formalização downstream: **não há glossário e não há nenhuma User Journey**, apesar de o PRD alimentar explicitamente UX → arquitetura → epics e de o produto ter superfícies de UX genuínas (inbox do atendente, flowbuilder visual, onboarding self-service). Somado a alguns NFRs adjetivais sem bound e a um gap de ID (FR-69), isso não compromete a decisão de construir, mas cobra trabalho extra dos workflows a jusante.
+Este é um PRD forte no que mais importa para um chain-top de estágio LAUNCH: tem uma tese clara e defensável ("estabilidade gerenciada como produto" vs. self-hosted), escopo honesto, e substância *ganha* — cada diferencial e cada requisito de engenharia está ancorado em uma falha concreta do concorrente Concorrente A, não em template. A tensão real (30 dias vs. 71 FRs) é nomeada, não suavizada. O que está em risco é a camada de formalização downstream: **não há glossário e não há nenhuma User Journey**, apesar de o PRD alimentar explicitamente UX → arquitetura → epics e de o produto ter superfícies de UX genuínas (inbox do atendente, flowbuilder visual, onboarding self-service). Somado a alguns NFRs adjetivais sem bound e a um gap de ID (FR-69), isso não compromete a decisão de construir, mas cobra trabalho extra dos workflows a jusante.
 
 ## Decision-readiness — strong
 
@@ -12,7 +18,7 @@ Nenhum finding material. O único ponto observável — preço 100% `[A DEFINIR]
 
 ## Substance over theater — strong
 
-Pouca mobília aqui. **Innovation:** os diferenciais de §2 não são novidade alegada — cada um cita uma dor que o Z-PRO "não resolveu ao longo de 2 anos de releases" (ex.: FR-63 identidade de contato "corrigido 6+ vezes"; o incidente Hostinger; a conta Meta restringida em 2026). Isso é diferenciação vinda de Discovery, não de template. **Vision:** a linha de abertura ("operada e gerenciada pelo unibot… o cliente nunca toca em VPS") é específica do produto, não trocável por outro PRD da categoria. **NFR:** a maioria tem threshold específico (uptime ≥99,5%, "updates que não derrubam a sessão", testes de contrato por provedor, backpressure) em vez de "deve ser escalável/seguro".
+Pouca mobília aqui. **Innovation:** os diferenciais de §2 não são novidade alegada — cada um cita uma dor que o Concorrente A "não resolveu ao longo de 2 anos de releases" (ex.: FR-63 identidade de contato "corrigido 6+ vezes"; o incidente Hostinger; a conta Meta restringida em 2026). Isso é diferenciação vinda de Discovery, não de template. **Vision:** a linha de abertura ("operada e gerenciada pelo unibot… o cliente nunca toca em VPS") é específica do produto, não trocável por outro PRD da categoria. **NFR:** a maioria tem threshold específico (uptime ≥99,5%, "updates que não derrubam a sessão", testes de contrato por provedor, backpressure) em vez de "deve ser escalável/seguro".
 
 ### Findings
 - **low** Persona "Marketing" no teto e rasa (§4) — É a 4ª persona (o limite do rubric), marcada "eventual", e só reaparece difusamente em Campanhas (Feature 5). Não dirige nenhuma decisão que Atendente/Dono já não dirijam. *Fix:* rebaixá-la a menção inline dentro da persona Dono/gestor, ou dar-lhe uma decisão própria (ex.: quem aprova template WABA / cota de campanha).
