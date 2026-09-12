@@ -58,3 +58,14 @@ desktop.ini
 tmp/
 temp/
 *.tmp
+
+# === Inteligência competitiva e pesquisa de mercado (NUNCA versionar) ===
+# Material bruto e análises que identificam concorrentes por nome.
+# Os documentos de planejamento versionados são anonimizados: preservam o
+# achado técnico e removem a identificação da fonte.
+.private-research/
+changelog-concorrente/
+_bmad-output/planning-artifacts/benchmark-*.md
+_bmad-output/planning-artifacts/RE_ANALISE.md
+_bmad-output/planning-artifacts/prds/**/analise-concorrente-*.md
+_bmad-output/planning-artifacts/prds/**/reconcile-*.md

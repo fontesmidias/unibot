@@ -8,6 +8,8 @@ O cliente vende e atende; a estabilidade da conexão, a infraestrutura e os upda
 
 Em fase de planejamento pelo método **BMad**. Este repositório preserva, desde o início, o histórico do que foi pensado e o **porquê** de cada decisão.
 
+**Fase atual:** PRD concluído e revisado; próximo passo é a especificação de UX, seguida da arquitetura e da quebra em épicos e stories.
+
 ## Artefatos de planejamento
 
 Em [`_bmad-output/planning-artifacts/`](_bmad-output/planning-artifacts/):
@@ -15,13 +17,15 @@ Em [`_bmad-output/planning-artifacts/`](_bmad-output/planning-artifacts/):
 | Artefato | Descrição |
 |---|---|
 | `briefs/brief-unibot-2026-06-20/` | Product Brief (modelo de negócio, escopo) |
-| `prds/prd-unibot-2026-06-20/prd.md` | **PRD** — 10 features, FRs 1–71, NFRs, riscos |
-| `prds/.../addendum.md` | Decisões técnicas (drivers de canal, provedores de IA) |
-| `prds/.../analise-concorrente-zpro.md` | Inteligência competitiva do Z-PRO (changelog de ~130 releases) |
+| `prds/prd-unibot-2026-06-20/prd.md` | **PRD** — 10 features, 79 FRs (1–82), 11 NFRs, 9 riscos |
+| `prds/.../addendum.md` | Decisões técnicas (drivers de canal, provedores de IA, gateway) e modelo comercial |
 | `prds/.../.decision-log.md` | Trilha de decisões e o porquê de cada uma |
+| `decisao-gateway-pagamento.md` | Comparativo de gateways de pagamento BR e decisão (Q6) |
 | `architecture.md` | Documento de arquitetura (em construção) |
 
-Insumo bruto do concorrente em [`changelog-concorrente/`](changelog-concorrente/).
+### Pesquisa de mercado
+
+A análise competitiva e os benchmarks que fundamentam várias decisões deste projeto **não são versionados** — ver `.gitignore`. Os documentos publicados aqui preservam integralmente os achados técnicos, as datas e as versões observadas, mas referem-se às fontes por designações neutras (*Concorrente A*, *B*, *C*). O material com as fontes nomeadas é mantido apenas localmente.
 
 ## Convenções de versionamento
 
